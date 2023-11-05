@@ -4,10 +4,11 @@ import GoogleMap from "./GoogelMap/GoogleMap";
 import HotelManage from "./HotelManage/HotelManage";
 import OurTeam from "./OurTeam/OurTeam";
 import Testimonials from "./Testimonials/Testimonials";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <div>
+    <div className="parallax">
       <Banner></Banner>
       <HotelManage></HotelManage>
       <Testimonials></Testimonials>
