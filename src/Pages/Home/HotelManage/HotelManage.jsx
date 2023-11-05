@@ -5,7 +5,7 @@ import { BiSolidBadgeDollar } from "react-icons/bi";
 const HotelManage = () => {
   return (
     <div className="py-20">
-      <div className="relative p-4 bg-white dark:bg-gray-800 rounded-xl">
+      <div className="relative p-4 py-8 bg-white dark:bg-gray-800 rounded-xl">
         <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
           <div className="lg:col-start-2 md:pl-20">
             <h4 className="text-2xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-white sm:leading-9">
@@ -66,7 +66,7 @@ const HotelManage = () => {
               </li>
             </ul>
           </div>
-          <div className="relative mt-10 -mx-4 md:-mx-12 lg:mt-0 lg:col-start-1">
+          <div className="relative mt-10  lg:mt-0 lg:col-start-1">
             <img
               src={manage}
               alt="hotel manager"
