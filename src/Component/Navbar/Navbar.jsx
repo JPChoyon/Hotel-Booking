@@ -23,15 +23,15 @@ const Navbar = () => {
           <a>About </a>
         </li>
       </NavLink>
-      <NavLink>
+      <NavLink to={'/rooms'}>
         <li>
-          <a>Services </a>
+          <a>Rooms </a>
         </li>
       </NavLink>
 
-      <NavLink>
+      <NavLink to={'/my-bookings'}>
         <li>
-          <a>Contact </a>
+          <a>My Booking </a>
         </li>
       </NavLink>
       {/* {user?.email ? (
