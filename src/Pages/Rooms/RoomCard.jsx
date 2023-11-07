@@ -2,10 +2,11 @@ import Rating from "react-rating";
 import grayStar from '../../assets/images/stars/star-grey.png'
 import redStar from "../../assets/images/stars/star-red.png";
 import yelloStar from "../../assets/images/stars/star-yellow.png";
+import { Link } from "react-router-dom";
 
 
 const RoomCard = ({ room }) => {
-  const {name, description, size, image, price,rating } = room;
+  const {_id,name, description, size, image, price,rating } = room;
   // console.log(description);
   return (
     <div>
@@ -34,9 +35,11 @@ const RoomCard = ({ room }) => {
           </div>
           <div className="flex justify-between mt-3 item-center">
             <h1 className="text-xl font-bold text-gray-700">${price}</h1>
-            <button className="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-800 rounded">
-              Details
-            </button>
+            <Link to={`/rooms/${_id}`}>
+              <button className="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-800 rounded">
+                Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>

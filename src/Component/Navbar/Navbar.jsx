@@ -1,16 +1,16 @@
 import { Link, NavLink, Navigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
-// import { useContext } from "react";
-// import { AuthContext } from "../../Context/Context";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/Context";
 
 const Navbar = () => {
-  // const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
-  // const handleLogOut = () => {
-  //   logOut()
-  //     .then(() => {})
-  //     .catch((error) => console.log(error));
-  // };
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const navItem = (
     <>
       <NavLink>
@@ -23,37 +23,17 @@ const Navbar = () => {
           <a>About </a>
         </li>
       </NavLink>
-      <NavLink to={'/rooms'}>
+      <NavLink to={"/rooms"}>
         <li>
           <a>Rooms </a>
         </li>
       </NavLink>
 
-      <NavLink to={'/my-bookings'}>
+      {user && (
         <li>
-          <a>My Booking </a>
+          <Link to="/my-bookings">My Bookings</Link>
         </li>
-      </NavLink>
-      {/* {user?.email ? (
-        <>
-          <Navigate to={"/"}></Navigate>
-          <li>
-            <Link to="/bookings">My Bookings</Link>
-          </li>
-          <li>
-            <button
-            // onClick={handleLogOut}
-            >
-              Log out
-            </button>
-          </li>
-        </>
-      ) : (
-        <li>
-          {" "}
-          <Link to="/login">Login</Link>{" "}
-        </li>
-      )} */}
+      )}
     </>
   );
   return (
@@ -89,7 +69,30 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navItem}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-outline btn-warning">Button</a>
+        {user ? (
+          <>
+            {user?.displayName ? (
+              <>
+                <h2>{user?.displayName}</h2>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} alt={user?.displayName} />
+                  </div>
+                </label>
+              </>
+            ) : (
+              <h2 className="font-bold">{user?.displayName}</h2>
+            )}
+
+            <button onClick={handleLogOut} className="btn btn-sm  btn-ghost">
+              Log Out
+            </button>
+          </>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-sm  btn-ghost">Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );

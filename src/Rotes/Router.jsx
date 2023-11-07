@@ -4,6 +4,11 @@ import Home from "../Pages/Home/Home";
 import Rooms from "../Pages/Rooms/Rooms";
 import MyBookings from "../Pages/MyBookings/MyBookings";
 
+import RoomsDetails from "../Pages/Rooms/RoomsDetails";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
+
+
 
 const Router = createBrowserRouter([
   {
@@ -23,10 +28,21 @@ const Router = createBrowserRouter([
         path: "/my-bookings",
         element: <MyBookings></MyBookings>,
       },
-      // {
-      //   path: '/login',
-      //   element:
-      // }
+      {
+        path: '/rooms/:id',
+        element: <RoomsDetails></RoomsDetails>,
+        loader: ({ params }) => {
+         return fetch(`http://localhost:5000/rooms/${params.id}`);
+        }
+      },
+      {
+        path: '/login',
+        element:<Login></Login>
+      },
+      {
+        path: '/register',
+        element:<Register></Register>
+      }
     ],
   },
 ]);
