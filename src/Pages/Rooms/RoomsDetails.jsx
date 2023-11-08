@@ -4,8 +4,9 @@ import Footer from "../../Component/Footer/Footer";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/Context";
 import { useContext } from "react";
+import DetailsRiview from "../DetailsRiview/DetailsRiview";
 
-const RoomsDetails = () => {
+const RoomsDetails = (asc) => {
   const details = useLoaderData();
   const {
     _id,
@@ -92,6 +93,7 @@ const RoomsDetails = () => {
           Book Now
         </button>
       </div>
+      <DetailsRiview></DetailsRiview>
       <Footer></Footer>
     </>
   );

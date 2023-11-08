@@ -7,13 +7,13 @@ import RoomsDetails from "../Pages/Rooms/RoomsDetails";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Privetroute from "./PrivateRoute";
-import ErrorPage from "../Pages/ErrorPage";
+// import ErrorPage from "../Pages/ErrorPage";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage></ErrorPage>,
+    // errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -59,6 +59,7 @@ const Router = createBrowserRouter([
           return fetch(`http://localhost:5000/bookings/${params.id}`);
         },
       },
+      
       {
         path: "/login",
         element: <Login></Login>,
