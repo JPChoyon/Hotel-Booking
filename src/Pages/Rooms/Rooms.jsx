@@ -19,7 +19,7 @@ const shortBtn = async () => {
   });
   rooms(sort);
 };
- 
+ console.log(rooms);
   return (
     <div>
       <div className=" w-full">

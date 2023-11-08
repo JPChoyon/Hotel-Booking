@@ -1,10 +1,8 @@
 import Swal from "sweetalert2";
 
-const BookingRow = ({ setbookings, bookings }) => {
-  const [{ _id, name, price, image }] = bookings;
-
-  console.log(bookings);
-  console.log(_id);
+const BookingRow = ({ setBookings,bookings, booking }) => {
+  const { _id, name, price, image, availability } = booking;
+  //   console.log(bookings);
 
   const handleDelete = (id) => {
     console.log(id);
@@ -26,8 +24,10 @@ const BookingRow = ({ setbookings, bookings }) => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
-              const remain = bookings.filter((carts) => carts._id != id);
-              setbookings(remain);
+              const remaining = bookings.filter(
+                (booking) => booking._id !== id
+              );
+              setBookings(remaining);
             }
           });
       }
@@ -50,20 +50,6 @@ const BookingRow = ({ setbookings, bookings }) => {
               {name}
             </h5>
           </a>
-          {/* <div className="flex items-center mt-2.5 mb-5">
-            rating :
-            <span>
-              <Rating
-                placeholderRating={parseFloat(rating)}
-                emptySymbol={<img src={grayStar} className="icon" />}
-                placeholderSymbol={<img src={redStar} className="icon" />}
-                fullSymbol={<img src={yelloStar} className="icon" />}
-              />
-            </span>
-            <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-              {rating}
-            </span>
-          </div> */}
 
           <div className="flex items-center justify-between">
             <span className=" font-bold text-gray-900">{price}$</span>
