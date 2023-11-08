@@ -2,38 +2,40 @@ import { useLoaderData } from "react-router-dom";
 import Footer from "../../Component/Footer/Footer";
 
 import RoomCard from "./RoomCard";
-import { useState } from "react";
 
-const Rooms = () => {
+
+const Rooms = ({sorting}) => {
   const rooms = useLoaderData();
-
-  // const [rooms, setRooms] = useState([]);
-  // const [sortOrder, setSortOrder] = useState("filter"); // Initial sort order
-
-  // const handleSortChange = (event) => {
-  //   const selectedSortOrder = event.target.value;
-  //   setSortOrder(selectedSortOrder);
-
-  //   if (selectedSortOrder === "high") {
-  //     const sortedProducts = [...rooms].sort((a, b) => b.price - a.price);
-  //     setRooms(sortedProducts);
-  //   } else if (selectedSortOrder === "low") {
-  //     const sortedProducts = [...rooms].sort((a, b) => a.price - b.price);
-  //     setRooms(sortedProducts);
-  //   }
-  // };
+  // const [sort,setsort]=
+const shortBtn = async () => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/videos/category/${sortHandler}`
+  );
+  const data = await res.json();
+  const sort = data.data.sort((a, b) => {
+    const view1 = a.others.views.slice(0, -1);
+    const view2 = b.others.views.slice(0, -1);
+    return view2 - view1;
+  });
+  rooms(sort);
+};
+ 
   return (
     <div>
       <div className=" w-full">
-        <select
-          className="mx-auto font-bold form-control block"
-          // value={sortOrder}
-          // onChange={handleSortChange}
-        >
-          <option value="filter">Filter</option>
-          <option value="high">Price (High To Low)</option>
-          <option value="low">Price (Low To High)</option>
-        </select>
+        <form action="">
+          <label htmlFor="sort"></label>
+          <select
+            className="mx-auto font-bold form-control block"
+            name="sort"
+            id="sort"
+            onClick={sorting}
+          >
+            {/* <option value="filter">Filter</option> */}
+            <option onClick={shortBtn} value="high">Price (High To Low)</option>
+            <option value="low">Price (Low To High)</option>
+          </select>
+        </form>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-2 ">
         {rooms.map((room) => (

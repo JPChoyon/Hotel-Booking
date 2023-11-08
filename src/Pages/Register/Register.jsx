@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/Context";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
+import { AuthContext } from "../../Context/Context";
 
 const Register = () => {
   const { emailSignUp, googleLogin } = useContext(AuthContext);
@@ -28,16 +28,16 @@ const Register = () => {
     const photo = event.target.photo.value;
 
     // validate the password
-    if (
-      !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
-        password
-      )
-    ) {
-      toast.error(
-        "Minimum eight characters, at least one letter, one number and one special character"
-      );
-      return;
-    }
+    // if (
+    //   !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
+    //     password
+    //   )
+    // ) {
+    //   toast.error(
+    //     "Minimum eight characters, at least one letter, one number and one special character"
+    //   );
+    //   return;
+    // }
 
     // create user with email and password
     emailSignUp(email, password)

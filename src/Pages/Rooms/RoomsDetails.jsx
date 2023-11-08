@@ -1,10 +1,39 @@
 import { useLoaderData } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import Footer from "../../Component/Footer/Footer";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/Context";
+import { useContext } from "react";
 
 const RoomsDetails = () => {
   const details = useLoaderData();
   const { _id, name, price, description, rating, image } = details;
+  const { user } = useContext(AuthContext);
+  const userEmail = user.email;
+  const cartDetails = { name, price, description, rating, image, userEmail };
+
+  const handleBooking = (id) => {
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cartDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            tposition: "center",
+            icon: "success",
+            title: "Your Product Added successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
   return (
     <>
       <div className="w-full py-5 my-10 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -77,7 +106,10 @@ const RoomsDetails = () => {
             <h1 className="px-2 text-sm">patterson@example.com</h1>
           </div>
         </div>
-        <button className="btn btn-outline text-white mx-auto block">
+        <button
+          onClick={() => handleBooking(_id)}
+          className="btn btn-outline text-white mx-auto block"
+        >
           Book Now
         </button>
       </div>

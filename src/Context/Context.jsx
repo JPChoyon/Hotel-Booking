@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -39,10 +40,33 @@ const Context = ({ children }) => {
     return signOut(auth);
   };
 
+  // sorting function 
+  const sorting = () => {
+    dispatchEvent({type:'GET_SORT_VALUE'})
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const userEmail = user?.email || user?.email;
+      const loggedUser = { email: userEmail };
       setUser(user);
       setLoading(false);
+      if (user) {
+        axios
+          .post("http://localhost:5000/jwt", loggedUser, {
+            withCredentials: true,
+            
+          })
+          .then((res) => console.log(res.data));
+      } else {
+        axios
+          .post("http://localhost:5000/logout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("token is : ", res.data);
+          });
+      }
     });
     return () => {
       unsubscribe();
@@ -56,6 +80,7 @@ const Context = ({ children }) => {
     logOut,
     loading,
     googleLogin,
+    sorting
   };
   return (
     <AuthContext.Provider value={authinfo}>{children}</AuthContext.Provider>
