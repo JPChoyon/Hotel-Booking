@@ -1,8 +1,12 @@
-# React + Vite
+# website feature
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a hotel booking website.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- you can booked a room when you logged in.
+- when you logged in then you see the room details page.
+- In details page you can booked the room on clicking the booked button .
+- When you booked a room then you see your booking data in the my booking section.
+- you can cancell the booked room in the my booking router,
+-
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
