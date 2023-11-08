@@ -12,13 +12,12 @@ const Revew = () => {
       .then((data) => setCorousolData(data));
   }, []);
   return (
-    <div>
+    <div data-aos="zoom-in" data-aos-duration="3000">
       <Carousel>
         {corosoulData?.map((corosul) => (
           <RevewCard key={corosul.id} corosul={corosul}></RevewCard>
         ))}
       </Carousel>
-      
     </div>
   );
 };

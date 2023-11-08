@@ -1,6 +1,6 @@
 const GoogleMap = () => {
   return (
-    <div className="py-20">
+    <div className="py-20" data-aos="zoom-in" data-aos-duration="3000">
       <div className="text-4xl py-5 font-bold text-center text-black">
         Our location in Google Map
       </div>

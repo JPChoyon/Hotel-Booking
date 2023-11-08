@@ -7,7 +7,7 @@ import avatar6 from "../../../assets/images/teams/avatar 6.jpg";
 
 const OurTeam = () => {
   return (
-    <div className="py-20">
+    <div data-aos="zoom-in" data-aos-duration="3000" className="py-20">
       <section className="text-gray-500 body-font bg-black rounded-2xl">
         <div className="container px-5 py-10 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">

@@ -40,10 +40,10 @@ const Context = ({ children }) => {
     return signOut(auth);
   };
 
-  // sorting function 
+  // sorting function
   const sorting = () => {
-    dispatchEvent({type:'GET_SORT_VALUE'})
-  }
+    dispatchEvent({ type: "GET_SORT_VALUE" });
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -55,7 +55,6 @@ const Context = ({ children }) => {
         axios
           .post("http://localhost:5000/jwt", loggedUser, {
             withCredentials: true,
-            
           })
           .then((res) => console.log(res.data));
       } else {
@@ -80,7 +79,7 @@ const Context = ({ children }) => {
     logOut,
     loading,
     googleLogin,
-    sorting
+    sorting,
   };
   return (
     <AuthContext.Provider value={authinfo}>{children}</AuthContext.Provider>

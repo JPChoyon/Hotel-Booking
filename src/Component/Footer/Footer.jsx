@@ -1,17 +1,22 @@
-import logo from '../../assets/images/logo.png'
+import logo from "../../assets/images/logo.png";
 
 const Footer = () => {
   return (
     <div>
       <>
-        <footer className="bg-white" aria-labelledby="footer-heading">
+        <footer
+          data-aos="zoom-in"
+          data-aos-duration="3000"
+          className="bg-white"
+          aria-labelledby="footer-heading"
+        >
           <h2 id="footer-heading" className="sr-only">
             Footer
           </h2>
           <div className="px-5 py-12 mx-auto max-w-7xl lg:py-16 md:px-12 lg:px-20">
             <div className="xl:grid xl:grid-cols-3 xl:gap-8">
               <div className="space-y-8 xl:col-span-1 flex items-center">
-               <img src={logo} alt="logo" />
+                <img src={logo} alt="logo" />
               </div>
               <div className="grid grid-cols-2 gap-8 mt-12 xl:mt-0 xl:col-span-2">
                 <div className="md:grid md:grid-cols-2 md:gap-8">
