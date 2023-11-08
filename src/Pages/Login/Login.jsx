@@ -2,22 +2,31 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/Context";
+import axios from "axios";
 
 const Login = () => {
-  const { emailLogin } = useContext(AuthContext);
+  const { emailLogin,user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-
     emailLogin(email, password)
       .then(() => {
         toast.success("Succesfully account created");
         navigate("/");
       })
       .catch((err) => toast.error(err.message));
+
+    // get access token
+    axios.post("http://localhost:5000/jwt", user,{withCredentials:true}).then((res) => {
+      console.log(res.data);
+      if (res.data.success) {
+        navigate(location?.state ? location?.state : "/");
+      }
+    });
+    
   };
 
   return (
