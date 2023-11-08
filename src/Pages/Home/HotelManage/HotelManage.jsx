@@ -4,7 +4,7 @@ import { MdSell } from "react-icons/md";
 import { BiSolidBadgeDollar } from "react-icons/bi";
 const HotelManage = () => {
   return (
-    <div className="py-20">
+    <div data-aos="zoom-in" className="py-20">
       <div className="relative p-4 py-8 bg-white dark:bg-gray-800 rounded-xl">
         <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
           <div className="lg:col-start-2 md:pl-20">
@@ -24,7 +24,8 @@ const HotelManage = () => {
                       One-click booking
                     </h5>
                     <p className="mt-2 text-base leading-6 text-gray-500 dark:text-gray-300">
-                      If you find a room for staying then you are come in right place
+                      If you find a room for staying then you are come in right
+                      place
                     </p>
                   </div>
                 </div>
@@ -59,7 +60,8 @@ const HotelManage = () => {
                       Low Budget &amp; Comfortable Rooms
                     </h5>
                     <p className="mt-2 text-base leading-6 text-gray-500 dark:text-gray-300">
-                      Booked comfortable room in low budget and stay in our hotel
+                      Booked comfortable room in low budget and stay in our
+                      hotel
                     </p>
                   </div>
                 </div>

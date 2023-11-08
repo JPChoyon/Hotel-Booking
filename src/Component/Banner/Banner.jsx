@@ -24,7 +24,11 @@ const slider = (
 );
 
 const Banner = () => {
-  return <div className="z-0 ">{slider}</div>;
+  return (
+    <div data-aos="zoom-in" data-aos-duration="3000" className="z-0 ">
+      {slider}
+    </div>
+  );
 };
 
 export default Banner;
