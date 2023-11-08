@@ -53,15 +53,23 @@ const Context = ({ children }) => {
       setLoading(false);
       if (user) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://hotel-booking-server-blush.vercel.app/jwt",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => console.log(res.data));
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://hotel-booking-server-blush.vercel.app/logout",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log("token is : ", res.data);
           });

@@ -26,7 +26,8 @@ const Router = createBrowserRouter([
             <Rooms></Rooms>
           </Privetroute>
         ),
-        loader: () => fetch("http://localhost:5000/rooms"),
+        loader: () =>
+          fetch("https://hotel-booking-server-blush.vercel.app/rooms"),
       },
       {
         path: "/my-bookings",
@@ -35,7 +36,10 @@ const Router = createBrowserRouter([
             <MyBookings></MyBookings>
           </Privetroute>
         ),
-        loader: () => fetch(`http://localhost:5000/bookings`,{credentials:'include'}),
+        loader: () =>
+          fetch(`https://hotel-booking-server-blush.vercel.app/bookings`, {
+            credentials: "include",
+          }),
       },
       {
         path: "/rooms/:id",
@@ -45,7 +49,9 @@ const Router = createBrowserRouter([
           </Privetroute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/rooms/${params.id}`);
+          return fetch(
+            `https://hotel-booking-server-blush.vercel.app/rooms/${params.id}`
+          );
         },
       },
       {
@@ -56,10 +62,12 @@ const Router = createBrowserRouter([
           </Privetroute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/bookings/${params.id}`);
+          return fetch(
+            `https://hotel-booking-server-blush.vercel.app/bookings/${params.id}`
+          );
         },
       },
-      
+
       {
         path: "/login",
         element: <Login></Login>,

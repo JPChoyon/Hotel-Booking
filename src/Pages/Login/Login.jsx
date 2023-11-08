@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/Context";
 import axios from "axios";
 
 const Login = () => {
-  const { emailLogin,user } = useContext(AuthContext);
+  const { emailLogin, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handLogin = (event) => {
@@ -20,13 +20,16 @@ const Login = () => {
       .catch((err) => toast.error(err.message));
 
     // get access token
-    axios.post("http://localhost:5000/jwt", user,{withCredentials:true}).then((res) => {
-      console.log(res.data);
-      if (res.data.success) {
-        navigate(location?.state ? location?.state : "/");
-      }
-    });
-    
+    axios
+      .post("https://hotel-booking-server-blush.vercel.app/jwt", user, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.success) {
+          navigate(location?.state ? location?.state : "/");
+        }
+      });
   };
 
   return (

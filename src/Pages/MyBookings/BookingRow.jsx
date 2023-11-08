@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-const BookingRow = ({ setBookings,bookings, booking }) => {
+const BookingRow = ({ setBookings, bookings, booking }) => {
   const { _id, name, price, image, availability } = booking;
   //   console.log(bookings);
 
@@ -16,7 +16,7 @@ const BookingRow = ({ setBookings,bookings, booking }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://hotel-booking-server-blush.vercel.app/bookings/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
