@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 
 
 const RoomCard = ({ room }) => {
-  const {_id,name, description, size, image, price,rating } = room;
+  console.log(room);
+  const { _id, name, description, size, image, price, rating } = room;
+  
   // console.log(description);
   return (
     <div>

@@ -13,7 +13,7 @@ const DetailsRiview = () => {
       image,
     };
 
-    fetch("https://hotel-booking-server-blush.vercel.app/riview", {
+    fetch("http://localhost:5000/riview", {
       method: "POST",
       headers: {
         "content-type": "application/json",

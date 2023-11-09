@@ -5,32 +5,46 @@ import Footer from "../../Component/Footer/Footer";
 import RoomCard from "./RoomCard";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios";
+// import { useState } from "react";
+// import { useEffect } from "react";
 
 const Rooms = () => {
-  const data = useLoaderData();
+  // const rooms = useLoaderData();
+const [sortvalue, setsortValue] = useState("asc");
+const handleSort = (e) => {
+  const sorting = e.target.value;
+  if (sorting === "High to Low") {
+    setsortValue("desc");
+  } else if (sorting === "Low to High") {
+    setsortValue("asc");
+  }
+};
+  const [rooms, setRooms] = useState();
+  useEffect(() => {
+    axios
+    .get(`http://localhost:5000/rooms?sortvalue=${sortvalue}`)
+    .then((res) => {
+      setRooms(res.data);
+    });
+  }, [sortvalue]);
+  // console.log(roomData);
+console.log(sortvalue);
 
-  // const { rooms, setRooms } = useState(data)
-  // // console.log(rooms);
-
-  // useEffect(() => {
-  //   fetch(`https://hotel-booking-server-blush.vercel.app/rooms?sort=${asc ? "asc" : " desc"}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setRooms(data));
-  // },[asc,setRooms])
-  // // sort method
-  // const [asc, setAsc] = useState(true);
-
-  // console.log(rooms);
   return (
     <div>
       <div className=" w-full">
-        <button onClick={() => setAsc(!asc)} className="btn btn-primary">
-          {asc ? "Price (High To Low)" : "Price (Low To High)"}
-        </button>
+        <select name="" className="input my-6" onChange={handleSort} id="">
+          <option value="" className="disabled">
+            Choose one
+          </option>
+          <option>High to Low</option>
+          <option>Low to High </option>
+        </select>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-2 ">
-        {rooms.map((room) => (
-          <RoomCard key={room._id} room={room}></RoomCard>
+        {rooms?.map((room) => (
+          <RoomCard key={room.id} room={room}></RoomCard>
         ))}
       </div>
       <Footer></Footer>

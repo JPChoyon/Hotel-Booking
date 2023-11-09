@@ -16,7 +16,7 @@ const BookingRow = ({ setBookings, bookings, booking }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://hotel-booking-server-blush.vercel.app/bookings/${id}`, {
+        fetch(`http://localhost:5000/bookings/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
