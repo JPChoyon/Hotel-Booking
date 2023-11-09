@@ -11,25 +11,27 @@ import axios from "axios";
 
 const Rooms = () => {
   // const rooms = useLoaderData();
-const [sortvalue, setsortValue] = useState("asc");
-const handleSort = (e) => {
-  const sorting = e.target.value;
-  if (sorting === "High to Low") {
-    setsortValue("desc");
-  } else if (sorting === "Low to High") {
-    setsortValue("asc");
-  }
-};
+  const [sortvalue, setsortValue] = useState("asc");
+  const handleSort = (e) => {
+    const sorting = e.target.value;
+    if (sorting === "High to Low") {
+      setsortValue("desc");
+    } else if (sorting === "Low to High") {
+      setsortValue("asc");
+    }
+  };
   const [rooms, setRooms] = useState();
   useEffect(() => {
     axios
-    .get(`http://localhost:5000/rooms?sortvalue=${sortvalue}`)
-    .then((res) => {
-      setRooms(res.data);
-    });
+      .get(
+        `https://hotel-booking-server-blush.vercel.app/rooms?sortvalue=${sortvalue}`
+      )
+      .then((res) => {
+        setRooms(res.data);
+      });
   }, [sortvalue]);
   // console.log(roomData);
-console.log(sortvalue);
+  console.log(sortvalue);
 
   return (
     <div>

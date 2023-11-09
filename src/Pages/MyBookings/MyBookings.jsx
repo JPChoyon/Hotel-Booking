@@ -9,7 +9,7 @@ const MyBookings = () => {
   const [bookings, setBookings] = useState(data);
 
   const userEmail = user.email;
-  const url = `http://localhost:5000/bookings?userEmail=${user?.email}`;
+  const url = `https://hotel-booking-server-blush.vercel.app/bookings?userEmail=${user?.email}`;
   useEffect(() => {
     fetch(url, { credentials: "include" })
       .then((res) => res.json())
