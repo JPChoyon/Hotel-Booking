@@ -27,7 +27,7 @@ const Router = createBrowserRouter([
           </Privetroute>
         ),
         loader: () =>
-          fetch("https://hotel-booking-server-blush.vercel.app/rooms"),
+          fetch(`https://hotel-booking-server-blush.vercel.app/rooms`),
       },
       {
         path: "/my-bookings",
