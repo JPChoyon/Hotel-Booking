@@ -13,5 +13,4 @@ This is a hotel booking website.
 - in the home page has the aos annimation for better experience.
 
 
-## About
-dksjafkl;jasdlkjflkasjdlfjasjdfl;k
+
