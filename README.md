@@ -11,3 +11,7 @@ This is a hotel booking website.
 - your booking data is safe throw the jwt token.
 - in the home page its have scroll parallax.
 - in the home page has the aos annimation for better experience.
+
+
+## About
+dksjafkl;jasdlkjflkasjdlfjasjdfl;k
