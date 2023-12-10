@@ -13,4 +13,4 @@ This is a hotel booking website.
 - in the home page has the aos annimation for better experience.
 
 
-
+# Live site https://hotel-booking-jpck.web.app/
